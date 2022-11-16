@@ -4,14 +4,12 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 
 
-const AppointmentBanner = () => {
-    const [selected, setSelected] = useState(new Date());
+const AppointmentBanner = ({ selected, setSelected }) => {
 
 
     return (
         <div>
-
-            <div className="hero lg:px-16 bg-base-200">
+            <div className="hero lg:px-10 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={chair} className="lg:w-1/2 rounded-lg shadow-2xl" alt='banner-img' />
                     <div>
@@ -20,14 +18,9 @@ const AppointmentBanner = () => {
                             selected={selected}
                             onSelect={setSelected}
                         ></DayPicker>
-
-                        <p>You have selected Date : {format(selected, 'PP')}</p>
-                    </div>
+                     </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 };
