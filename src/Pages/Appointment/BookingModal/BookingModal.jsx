@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 
 const BookingModal = ({ treatment, setTreatment, selected }) => {
     const { name, slots } = treatment;
-    const date = format(selected, 'PP')
+    const date = format(selected, 'PP');
 
     const handleBooking = (event) => {
         event.preventDefault();
@@ -23,7 +23,6 @@ const BookingModal = ({ treatment, setTreatment, selected }) => {
             email,
             phone
         }
-        console.log(booking);
 
         setTreatment(null);
     }
