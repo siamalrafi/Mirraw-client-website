@@ -1,7 +1,10 @@
 import React from 'react';
+import { format } from 'date-fns';
 
-const BookingModal = ({ treatment }) => {
-    const { name } = treatment;
+
+const BookingModal = ({ treatment, selected }) => {
+    const { name, slots } = treatment;
+    const data = format(selected, 'PP')
 
     return (
         <>
@@ -13,16 +16,28 @@ const BookingModal = ({ treatment }) => {
 
 
                     <form className='grid grid-cols-1 gap-2'>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full" />
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+                        <input type="text" disabled value={data} className="input input-bordered w-full" />
+
+
+                        <select className="select select-bordered w-full max-w-xs">
+                            {
+                                slots.length > 0 ?
+                                    slots.map(slot =>
+                                        <option
+                                            key={slot}
+                                        >{slot}</option>
+
+                                    ) :
+                                    <option>Try another day</option>
+                            }
+                        </select>
+
                         <input type="text" placeholder="Type here" className="input input-bordered w-full" />
                         <input type="text" placeholder="Type here" className="input input-bordered w-full" />
                         <input type="text" placeholder="Type here" className="input input-bordered w-full" />
                         <br />
                         <input className='w-full btn' type="submit" value="Submit" />
                     </form>
-
-
 
                 </div>
             </div>
