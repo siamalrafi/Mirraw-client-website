@@ -4,7 +4,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
 
-const BookingModal = ({ treatment, setTreatment, selected }) => {
+const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
     const notify = () => toast.success('Successfully Booking.');
     const { user } = useContext(AuthContext);
     const { name, slots } = treatment;
@@ -36,9 +36,9 @@ const BookingModal = ({ treatment, setTreatment, selected }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    console.log(data);
                     setTreatment(null);
                     notify();
+                    refetch();
                 }
             })
 
