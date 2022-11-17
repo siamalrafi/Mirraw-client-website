@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { format } from 'date-fns';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const BookingModal = ({ treatment, setTreatment, selected }) => {
+    const notify = () => toast.success('Successfully Booking.');
+    const { user } = useContext(AuthContext);
     const { name, slots } = treatment;
     const date = format(selected, 'PP');
 
@@ -22,9 +26,23 @@ const BookingModal = ({ treatment, setTreatment, selected }) => {
             slot,
             email,
             phone
-        }
+        };
 
-        setTreatment(null);
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    console.log(data);
+                    setTreatment(null);
+                    notify();
+                }
+            })
+
+
     }
 
 
@@ -47,12 +65,14 @@ const BookingModal = ({ treatment, setTreatment, selected }) => {
                             }
                         </select>
 
-                        <input name='name' type="text" placeholder="Name" className="input input-bordered w-full" />
-                        <input name='email' type="text" placeholder="email Number" className="input input-bordered w-full" />
+                        <input name='name' defaultValue={user?.displayName} disabled type="text" placeholder="Name" className="input input-bordered w-full" />
+                        <input name='email' defaultValue={user?.email} disabled type="text" placeholder="email Number" className="input input-bordered w-full" />
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" />
                         <br />
                         <input className='w-full btn' type="submit" value="Submit" />
+                        <Toaster />
                     </form>
+
 
                 </div>
             </div>
