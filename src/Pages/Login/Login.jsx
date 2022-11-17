@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const notify = () => toast.success('Successfully Login');
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const { signIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -13,18 +15,19 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
-        console.log(data);
+
         setLoginError('');
-        // signIn(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         navigate(from, { replace: true });
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message)
-        //         setLoginError(error.message);
-        //     });
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                notify()
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoginError(error.message);
+            });
     }
 
     return (
@@ -61,6 +64,7 @@ const Login = () => {
                 <div className="divider">OR</div>
                 <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

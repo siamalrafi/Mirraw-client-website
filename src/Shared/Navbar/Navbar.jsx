@@ -4,18 +4,17 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
         <li><Link to='/contact'>Contact Us</Link></li>
-
         {
             user ?
                 <>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
+
                     <li><Link onClick={() => logOut()}>Log Out</Link></li>
                 </>
                 :
@@ -24,7 +23,6 @@ const Navbar = () => {
                     <li><Link to='/login'>Login</Link></li>
                 </>
         }
-
 
     </React.Fragment>
 
