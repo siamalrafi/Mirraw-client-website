@@ -7,26 +7,16 @@ import { useQuery } from '@tanstack/react-query';
 
 
 const AvailableAppointment = ({ selected }) => {
-    // const [appointmentOptions, setAppointmentOptions] = useState([]);
     const [treatment, setTreatment] = useState(null);
 
     const { data: appointmentOptions = [] } = useQuery({
-        queryKey: ['appointmentOptions'],
-        queryFn: () => fetch('http://localhost:5000/appointmentOptions')
-            .then(res => res.json())
-
+        queryKey: 'appointmentOptions',
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/appointmentOptions')
+            const data = await res.json();
+            return data;
+        }
     })
-
-
-
-    // useState(() => {
-    //     fetch('http://localhost:5000/appointmentOptions')
-    //         .then(res => res.json())
-    //         .then(data => setAppointmentOptions(data))
-    // }, []);
-
-
-
 
 
     return (
