@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [checked, setChecked] = useState()
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
@@ -23,6 +24,26 @@ const Navbar = () => {
                     <li><Link to='/login'>Login</Link></li>
                 </>
         }
+
+
+
+        <div className="form-control mt-2">
+            <label className="label cursor-pointer">
+                <input type="checkbox" className="toggle" onClick={(checked) => setChecked(checked)} />
+                {
+                    checked ?
+
+                        <span className="ml-2 text-sm font-medium text-gray-900">
+                            Dark
+                        </span>
+                        :
+                        <span className="ml-2 text-sm font-medium text-gray-900">
+                            Light
+                        </span>
+                }
+            </label>
+        </div>
+
 
     </React.Fragment>
 
