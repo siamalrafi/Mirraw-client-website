@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
     const notify = () => toast.success('Successfully Booking.');
+    const notifyError = () => toast.error('Already Booked.');
     const { user } = useContext(AuthContext);
     const { name, slots } = treatment;
     const date = format(selected, 'PP');
@@ -40,6 +41,9 @@ const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
                     notify();
                     refetch();
                 }
+                else {
+                    notifyError();
+                }
             })
 
 
@@ -69,10 +73,11 @@ const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
                         <input name='email' defaultValue={user?.email} disabled type="text" placeholder="email Number" className="input input-bordered w-full" />
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" />
                         <br />
-                        <input className='w-full btn' type="submit" value="Submit" />
                         <Toaster />
+                        <input className='w-full btn' type="submit" value="Submit" />
+                        {/* <Toaster /> */}
                     </form>
-
+                    {/* <Toaster /> */}
 
                 </div>
             </div>
