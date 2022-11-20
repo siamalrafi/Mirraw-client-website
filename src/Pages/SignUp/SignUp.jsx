@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useToken from '../../Hooks/UseToken';
 
 const SignUp = () => {
-    const notify = () => toast.success('Successfully signed up');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
@@ -20,54 +19,40 @@ const SignUp = () => {
 
     const handleSignUp = (data) => {
         setSignUPError('');
-
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                notify();
-                const name = data.name;
-                updateUser(name)
+                toast('User Created Successfully.')
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
                     .then(() => {
-                        saveUser(name, data.email);
-                    }).catch((error) => {
-                        console.log(error);
-                    });
+                        saveUser(data.name, data.email);
+                    })
+                    .catch(err => console.log(err));
             })
             .catch(error => {
                 console.log(error)
                 setSignUPError(error.message)
             });
-    };
-
-
+    }
 
     const saveUser = (name, email) => {
         const user = { name, email };
-
         fetch('http://localhost:5000/users', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'content-type': 'application/json'
+            },
             body: JSON.stringify(user)
         })
             .then(res => res.json())
             .then(data => {
-                setCreatedUserEmail(email)
-            });
-    };
-
-
-    // const getUserToken = (email) => {
-    //     fetch(`http://localhost:5000/jwt?email=${email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.accessToken) {
-    //                 localStorage.setItem('accessToken', data.accessToken)
-    //             }
-    //         })
-    // }
-
-
+                setCreatedUserEmail(email);
+            })
+    }
 
 
 
@@ -105,7 +90,7 @@ const SignUp = () => {
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
                 <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
-                <Toaster></Toaster>
+
             </div>
         </div>
     );
