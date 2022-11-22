@@ -10,6 +10,7 @@ import DashboardLayout from '../../Layout/DashBoardLayout/DashBoardLayout';
 import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
 import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import MyAppoinment from "../../Layout/MyAppoinment/MyAppoinment";
+import AllUser from "../../Pages/DashBoard/AllUser/AllUser";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyAppoinment></MyAppoinment>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUser></AllUser>
             }
         ]
     }

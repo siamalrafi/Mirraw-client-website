@@ -27,11 +27,12 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: data.name
                 }
-                updateUser(userInfo)
-                    .then(() => {
-                        saveUser(data.name, data.email);
-                    })
-                    .catch(err => console.log(err));
+                saveUser(data.name, data.email);
+                // updateUser(userInfo)
+                //     .then(() => {
+                //         saveUser(data.name, data.email);
+                //     })
+                //     .catch(err => console.log(err));
             })
             .catch(error => {
                 console.log(error)

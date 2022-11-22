@@ -9,7 +9,9 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
+
     const [token] = useToken(loginUserEmail);
+    
     const location = useLocation();
     const navigate = useNavigate();
 
