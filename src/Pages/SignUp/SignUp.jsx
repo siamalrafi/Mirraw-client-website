@@ -23,16 +23,12 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Created Successfully.')
-                const userInfo = {
-                    displayName: data.name
-                }
-                saveUser(data.name, data.email);
-                // updateUser(userInfo)
-                //     .then(() => {
-                //         saveUser(data.name, data.email);
-                //     })
-                //     .catch(err => console.log(err));
+                toast('User Created Successfully.');
+                updateUser(data.name)
+                    .then(() => {
+                        saveUser(data.name, data.email);
+                    })
+                    .catch(err => console.log(err));
             })
             .catch(error => {
                 console.log(error)
