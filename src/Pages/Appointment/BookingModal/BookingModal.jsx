@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { format } from 'date-fns';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
@@ -45,8 +46,6 @@ const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
                     notifyError();
                 }
             })
-
-
     }
 
 
@@ -74,7 +73,15 @@ const BookingModal = ({ treatment, setTreatment, selected, refetch }) => {
                         <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" />
                         <br />
                         <Toaster />
-                        <input className='w-full btn' type="submit" value="Submit" />
+                        {
+                            user?.email ?
+                                <>
+                                    <input className='w-full btn' type="submit" value="Submit" />
+                                </>
+                                :
+                                <>
+                                    <Link className='w-full btn' to={'/login'}>Login Please</Link></>
+                        }
                         {/* <Toaster /> */}
                     </form>
                     {/* <Toaster /> */}
