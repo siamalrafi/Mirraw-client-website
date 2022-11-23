@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import Navbar from '../../Shared/Navbar/Navbar';
 
 const DashBoardLayout = () => {
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <Navbar></Navbar>
@@ -16,6 +18,10 @@ const DashBoardLayout = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li><Link to={'/dashboard'}>My Appointment</Link></li>
                         <li><Link to={'/dashboard/allusers'}>All Users</Link></li>
+                        <li><Link to={'/dashboard/adddoctor'}>Add A Doctor</Link></li>
+                        <li><Link to={'/dashboard/managedoctors'}>Manage Doctor</Link></li>
+
+
                     </ul>
 
                 </div>

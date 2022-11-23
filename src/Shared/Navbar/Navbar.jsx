@@ -4,7 +4,9 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [checked, setChecked] = useState()
+    const [checked, setChecked] = useState();
+
+    console.log(user?.displayName);
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
