@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ modalData, }) => {
     const mookingToast = () => toast.success('Booking confirmed');
-    const mookingToastError = () => toast.error('Booking confirmed');
+    const mookingToastError = () => toast.error('Error! Please try again');
     const { user } = useContext(AuthContext);
 
     const handleBooking = (event) => {
