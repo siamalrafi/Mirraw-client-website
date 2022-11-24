@@ -1,5 +1,4 @@
 import React from 'react';
-import quote from '../../../assets/icons/quote.svg';
 import people1 from '../../../assets/images/people1.png'
 import people2 from '../../../assets/images/people2.png'
 import people3 from '../../../assets/images/people3.png'
@@ -40,11 +39,10 @@ const Testimonial = () => {
     return (
         <section className='my-16 ' >
 
-            <div className=' text-center'>
+            <div className=' text-center my-10'>
                 <h2 className="text-3xl text-center text-primary font-bold">Some Reviews</h2>
                 <p className='text-4xl '>What Our customer Says</p>
             </div>
-
 
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3'>
