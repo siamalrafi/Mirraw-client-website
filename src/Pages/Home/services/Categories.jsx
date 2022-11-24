@@ -1,25 +1,25 @@
 import React from 'react';
 import Service from './Service';
 
-const services = () => {
+const Categories = () => {
 
     const servicesData = [
         {
             id: 1,
             name: 'Kids jewellery',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'Here is the all products of this categories . You can see all products . For see all products click see all button.',
             img: 'https://i.ibb.co/CWVXSwG/download-2.jpg'
         },
         {
             id: 2,
             name: 'Fassion jewellery',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'Here is the all products of this categories . You can see all products . For see all products click see all button.',
             img: 'https://i.ibb.co/jzrYqLL/download-3.jpg'
         },
         {
             id: 3,
             name: 'Diamond',
-            description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
+            description: 'Here is the all products of this categories . You can see all products . For see all products click see all button.',
             img: 'https://i.ibb.co/VYSWvpz/download-4.jpg'
         },
     ]
@@ -42,7 +42,6 @@ const services = () => {
                         key={service.id}
                         service={service}
                     >
-
                     </Service>)
                 }
 
@@ -56,4 +55,4 @@ const services = () => {
     );
 };
 
-export default services;
+export default Categories;

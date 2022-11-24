@@ -3,11 +3,8 @@ import Main from '../../Layout/Main/Main';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login';
 import SignUp from "../../Pages/SignUp/SignUp";
-import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
-import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
-import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
-import { async } from "@firebase/util";
 import DisplayError from "../../Shared/DisplayError/DisplayError";
+import SingleCategory from "../../Pages/SingleCategory/SingleCategory";
 
 
 const router = createBrowserRouter([
@@ -21,6 +18,10 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/category/:id',
+                element: <SingleCategory></SingleCategory>,
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -28,16 +29,16 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
-        
+
         ]
     },
-    {
-        path: '/dashboard',
-        element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
-        errorElement: <DisplayError></DisplayError>,
-        children: [
-        ]
-    }
+    // {
+    //     path: '/dashboard',
+    //     element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+    //     errorElement: <DisplayError></DisplayError>,
+    //     children: [
+    //     ]
+    // }
 
 
 ]);
