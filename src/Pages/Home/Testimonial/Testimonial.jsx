@@ -38,7 +38,7 @@ const Testimonial = () => {
 
 
     return (
-        <section className='my-16'>
+        <section className='my-16 ' >
 
             <div className=' text-center'>
                 <h2 className="text-3xl text-center text-primary font-bold">Some Reviews</h2>

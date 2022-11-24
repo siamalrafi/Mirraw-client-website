@@ -9,21 +9,21 @@ const services = () => {
     const servicesData = [
         {
             id: 1,
-            name: 'Fluoride Treatment',
+            name: 'Kids jewellery',
             description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
-            img: Fluoride
+            img: 'https://i.ibb.co/CWVXSwG/download-2.jpg'
         },
         {
             id: 2,
-            name: 'Cavity Filling',
+            name: 'Fassion jewellery',
             description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
-            img: cavity
+            img: 'https://i.ibb.co/jzrYqLL/download-3.jpg'
         },
         {
             id: 3,
-            name: 'Teeth Whitening',
+            name: 'Diamond',
             description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
-            img: whitening
+            img: 'https://i.ibb.co/VYSWvpz/download-4.jpg'
         },
     ]
 

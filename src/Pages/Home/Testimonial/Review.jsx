@@ -9,7 +9,7 @@ const Review = ({ reviewData }) => {
 
     return (
         <div>
-            <div className="card shadow-xl">
+            <div className="card   bg-base-200 shadow-xl">
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <div> <div className="flex items-center">

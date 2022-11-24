@@ -6,8 +6,7 @@ const Banner = () => {
     return (
         <div>
             <div className="hero  bg-base-200">
-                <div className="hero-content flex-col max-w-lg lg:flex-row-reverse">
-                    {/* <img src='https://i.ibb.co/X54qsGL/download.jpg' className="  rounded-lg lg:h-72 xl:hidden shadow-2xl" alt='banner-img' /> */}
+                <div className="hero-content flex-col max-w-lg lg:flex-row-reverse"> 
                     <img src='https://i.ibb.co/H22LkdC/download.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
                     <img src='https://i.ibb.co/X54qsGL/download.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
                     <img src='https://i.ibb.co/Wzkks5d/download-1.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
@@ -18,10 +17,6 @@ const Banner = () => {
 
                 </div>
             </div>
-
-
-
-
             <div className="hero  bg-base-200">
                 <div className="hero-content flex justify-between">
 
