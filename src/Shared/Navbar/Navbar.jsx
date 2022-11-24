@@ -34,11 +34,11 @@ const Navbar = () => {
                     checked ?
 
                         <span className="ml-2 text-sm font-medium text-gray-900">
-                            Dark
+                            Light
                         </span>
                         :
                         <span className="ml-2 text-sm font-medium text-gray-900">
-                            Light
+                            Dark
                         </span>
                 }
             </label>
