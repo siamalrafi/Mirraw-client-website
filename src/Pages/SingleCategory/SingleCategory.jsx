@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../BookingModal/BookingModal';
 import Card from './Card';
 
 const SingleCategory = () => {
     const products = useLoaderData();
+    const [modalData, setModalData] = useState();
+    const [closeModal, setCloseModal] = useState();
 
 
-
+    console.log(products.length);
 
 
     return (
-        <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 my-8 justify-items-center'>
+        <div>
+            <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 my-8 justify-items-center'>
+                {
+                    products?.map(product => <Card
+                        product={product}
+                        setModalData={setModalData}
+                        key={product._id}>
+                    </Card>
+                    )
+                }
+            </div>
             {
-                products?.map(product => <Card
-                    product={product}
-                    key={product._id}>
-                </Card>
-                )
+                modalData && <BookingModal
+                    // modalData={closeModal}
+                    modalData={modalData}
+                    setModalData={setModalData}
+                ></BookingModal>
             }
+
         </div>
     );
 };

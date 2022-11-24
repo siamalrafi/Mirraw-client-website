@@ -1,10 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../Firebase/Firebase.config';
+import { GoogleAuthProvider } from "firebase/auth";
+
+
 
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -24,6 +28,17 @@ const AuthProvider = ({ children }) => {
             displayName: name,
         })
     };
+
+    const googelSign = () => {
+        return signInWithPopup(auth, googleProvider)
+
+    }
+
+
+
+
+
+
     const logOut = () => {
         setLoading(true);
         localStorage.removeItem('accessToken');
@@ -43,6 +58,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         createUser,
         signIn,
+        googelSign,
         updateUser,
         logOut,
         user,

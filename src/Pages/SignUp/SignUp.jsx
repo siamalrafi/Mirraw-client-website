@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const SignUp = () => {
     const signToast = () => toast.success('User Created Successfully.');
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, googelSign } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const navigate = useNavigate();
 
@@ -34,7 +34,17 @@ const SignUp = () => {
             });
     }
 
-
+    const handleGoogleSign = () => {
+        googelSign()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/');
+            })
+            .then(error => {
+                console.log(error);
+            })
+    }
 
 
 
@@ -66,13 +76,30 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
+
+
+
+
+                    <select name="slot" className="select select-bordered w-full">
+                        <option > Seller</option>
+                        <option > Buyer</option>
+                    </select>
+
+
+
+
+
+
+
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     <Toaster />
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button
+                    onClick={() => handleGoogleSign()}
+                    className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
 
             </div>
         </div>
