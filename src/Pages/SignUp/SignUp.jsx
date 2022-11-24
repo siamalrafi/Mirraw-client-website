@@ -1,21 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import useToken from '../../Hooks/UseToken';
 
 const SignUp = () => {
+    const signToast = () => toast.success('User Created Successfully.');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('')
-    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
-    if (token) {
-        navigate('/');
-    }
+
 
     const handleSignUp = (data) => {
         setSignUPError('');
@@ -23,10 +19,12 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast('User Created Successfully.');
+                signToast();
                 updateUser(data.name)
                     .then(() => {
-                        saveUser(data.name, data.email);
+                        navigate('/')
+                        signToast();
+                        // console.log(user);
                     })
                     .catch(err => console.log(err));
             })
@@ -36,25 +34,12 @@ const SignUp = () => {
             });
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
-        fetch('http://localhost:5000/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                setCreatedUserEmail(email);
-            })
-    }
+
 
 
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div className='h-[500px] flex justify-center items-center'>
             <div className='w-96 p-7'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
@@ -83,6 +68,7 @@ const SignUp = () => {
                     </div>
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
+                    <Toaster />
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
