@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -69,8 +69,7 @@ const BookingModal = ({ modalData, }) => {
                             defaultValue={modalData?.ResalePrice} disabled />
                         <br />
                         <Toaster />
-                        <input
-                            // onClick={() => ?}
+                        <input disableded
                             className='btn btn-accent w-full' type="submit" value="Submit" />
                     </form>
                 </div>

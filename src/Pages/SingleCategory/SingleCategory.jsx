@@ -6,10 +6,6 @@ import Card from './Card';
 const SingleCategory = () => {
     const products = useLoaderData();
     const [modalData, setModalData] = useState();
-    const [closeModal, setCloseModal] = useState();
-
-
-    console.log(products.length);
 
 
     return (
@@ -26,7 +22,6 @@ const SingleCategory = () => {
             </div>
             {
                 modalData && <BookingModal
-                    // modalData={closeModal}
                     modalData={modalData}
                     setModalData={setModalData}
                 ></BookingModal>
