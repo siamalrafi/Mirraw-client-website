@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Service = ({ service }) => {
+const Service = ({ service, }) => {
     const { name, description, id, img } = service;
+
+
+
+
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
@@ -13,7 +17,8 @@ const Service = ({ service }) => {
                     <h2 className="card-title">{name}!</h2>
                     <p>{description}</p>
                     <div className="card-actions">
-                        <Link to={`/category/${id}`}>
+                        <Link to={`/category/${id}`}
+                        >
                             <button className="btn text-2xl btn-primary">See All</button>
                         </Link>
 

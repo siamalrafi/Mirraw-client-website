@@ -11,6 +11,7 @@ const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+    const [displayId, setDisplayID] = useState('');
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
@@ -33,12 +34,7 @@ const AuthProvider = ({ children }) => {
     const googelSign = () => {
         return signInWithPopup(auth, googleProvider)
 
-    }
-
-
-
-
-
+    } 
 
     const logOut = () => {
         setLoading(true);
@@ -62,8 +58,10 @@ const AuthProvider = ({ children }) => {
         googelSign,
         updateUser,
         logOut,
+        setDisplayID,
+        displayId,
         user,
-        loading
+        loading,
     }
     return (
         <AuthContext.Provider value={authInfo}>

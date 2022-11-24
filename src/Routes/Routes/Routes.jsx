@@ -8,7 +8,6 @@ import SingleCategory from "../../Pages/SingleCategory/SingleCategory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
 
-
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,10 +20,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <PrivateRoute>
-                    <SingleCategory></SingleCategory>
-                </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                element:
+                    <PrivateRoute>
+                        <SingleCategory></SingleCategory>
+                    </PrivateRoute>,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/login',

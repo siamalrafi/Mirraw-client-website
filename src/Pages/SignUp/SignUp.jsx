@@ -15,20 +15,40 @@ const SignUp = () => {
 
     const handleSignUp = (data) => {
 
-
-        console.log(data.userType);
-
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                signToast();
+
                 updateUser(data.name, data.userType)
                     .then(() => {
-                        navigate('/')
-                        signToast();
-                        // console.log(user);
+
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(user)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                signToast();
+                                navigate('/')
+                                console.log('data', data);
+                            })
+
+
+
+
+
+
+
+
+
+
+
+
                     })
                     .catch(err => console.log(err));
             })

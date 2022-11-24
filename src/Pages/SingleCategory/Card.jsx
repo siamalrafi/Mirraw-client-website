@@ -1,9 +1,8 @@
 import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import BookingModal from '../BookingModal/BookingModal';
+import React, { useContext } from 'react';
 
-const Card = ({ product, setModalData }) => {
+const Card = ({ product, setModalData, }) => {
     const { ProductName, picture, ResalePrice, about, location, originalPrice, phone, SellerType, sellerName, years } = product;
 
     return (
@@ -51,7 +50,6 @@ const Card = ({ product, setModalData }) => {
                         >Book now</label>
                     </div>
 
-                    {/* <BookingModal product={product}></BookingModal> */}
                 </div>
             </div>
         </div>

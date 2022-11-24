@@ -7,6 +7,15 @@ const SingleCategory = () => {
     const products = useLoaderData();
     const [modalData, setModalData] = useState();
 
+    /*     useEffect(() => {
+            fetch(`http://localhost:5000/category/id?`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        }, [])
+     */
+
 
     return (
         <div>
@@ -20,6 +29,9 @@ const SingleCategory = () => {
                     )
                 }
             </div>
+
+
+
             {
                 modalData && <BookingModal
                     modalData={modalData}
