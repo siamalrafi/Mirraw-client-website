@@ -5,6 +5,8 @@ import Login from '../../Pages/Login/Login';
 import SignUp from "../../Pages/SignUp/SignUp";
 import DisplayError from "../../Shared/DisplayError/DisplayError";
 import SingleCategory from "../../Pages/SingleCategory/SingleCategory";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
 
 
 const router = createBrowserRouter([
@@ -19,7 +21,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <SingleCategory></SingleCategory>,
+                element: <PrivateRoute>
+                    <SingleCategory></SingleCategory>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
@@ -33,13 +37,13 @@ const router = createBrowserRouter([
 
         ]
     },
-    // {
-    //     path: '/dashboard',
-    //     element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
-    //     errorElement: <DisplayError></DisplayError>,
-    //     children: [
-    //     ]
-    // }
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+        errorElement: <DisplayError></DisplayError>,
+        children: [
+        ]
+    }
 
 
 ]);

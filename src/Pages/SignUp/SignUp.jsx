@@ -14,13 +14,17 @@ const SignUp = () => {
 
 
     const handleSignUp = (data) => {
+
+
+        console.log(data.userType);
+
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 signToast();
-                updateUser(data.name)
+                updateUser(data.name, data.userType)
                     .then(() => {
                         navigate('/')
                         signToast();
@@ -49,7 +53,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='h-[500px] flex justify-center items-center'>
+        <div className='h-[600px] flex justify-center items-center'>
             <div className='w-96 p-7'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
@@ -77,14 +81,20 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
 
-
-
-
-                    <select name="slot" className="select select-bordered w-full">
-                        <option > Seller</option>
-                        <option > Buyer</option>
-                    </select>
-
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">User Type</span>
+                        </label>
+                        <select
+                            {...register("userType", {
+                                required: true
+                            })}
+                            className="select select-bordered w-full max-w-xs">
+                            <option disabled selected>Buyer</option>
+                            <option>Seller</option>
+                        </select>
+                        {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                    </div>
 
 
 
