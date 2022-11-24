@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Card from './Card';
 
 const SingleCategory = () => {
+    const products = useLoaderData();
 
-    fetch('/products.json')
-        .then(response => response.json())
-        .then(json =>
-            console.log(json))
+
 
 
 
     return (
-        <div>
-            <h1>SingleCategorySingleCategorySingleCategory</h1>
-            <h1>SingleCategorySingleCategorySingleCategory</h1>
-            <h1>SingleCategorySingleCategorySingleCategory</h1>
+        <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 my-8 justify-items-center'>
+            {
+                products?.map(product => <Card
+                    product={product}
+                    key={product._id}>
+                </Card>
+                )
+            }
         </div>
     );
 };
