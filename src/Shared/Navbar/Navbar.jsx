@@ -6,12 +6,10 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [checked, setChecked] = useState();
 
-    console.log(user?.displayName);
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
         <li><Link to='/'>Contact Us</Link></li>
         {
             user ?
@@ -62,7 +60,7 @@ const Navbar = () => {
                             {manuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Makbo sell</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

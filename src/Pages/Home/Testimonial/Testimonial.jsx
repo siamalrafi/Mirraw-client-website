@@ -10,24 +10,27 @@ const Testimonial = () => {
     const reviews = [
         {
             _id: 1,
-            name: 'Winson Herry',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
+            name: 'Robin Hasan',
+            review: 'It is a Very good platform to selling and buy Second hand products.It is a survey of previously published research on a topi.',
             img: people1,
-            location: 'California'
+            location: 'Dhaka',
+            rating: 5
         },
         {
             _id: 2,
-            name: 'Winson Herry',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
+            name: 'Mita Moni',
+            review: 'It is a Very good platform to selling and buy Second hand products.It is a survey of previously published research on a topi.',
             img: people2,
-            location: 'California'
+            location: 'Kotalia',
+            rating: 4
         },
         {
             _id: 3,
-            name: 'Winson Herry',
-            review: 'It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content',
+            name: 'Taposi Akter',
+            review: 'It is a Very good platform to selling and buy Second hand products.It is a survey of previously published research on a topi.',
             img: people3,
-            location: 'California'
+            location: 'Barisal',
+            rating: 5
         },
     ]
 
@@ -36,16 +39,16 @@ const Testimonial = () => {
 
     return (
         <section className='my-16'>
-            <div className='flex justify-between'>
-                <div>
-                    <h2 className="text-3xl text-primary font-bold">Testimonial</h2>
-                    <p className='text-4xl '>What Our Patients Says</p>
-                </div>
-                <figure >
-                    <img className='w-24 lg:w-48' src={quote} alt="img" />
-                </figure>
+
+            <div className=' text-center'>
+                <h2 className="text-3xl text-center text-primary font-bold">Some Reviews</h2>
+                <p className='text-4xl '>What Our customer Says</p>
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
+
+
+
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3'>
+
                 {
                     reviews.map(review => <Review
                         key={review._id}

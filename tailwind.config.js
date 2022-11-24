@@ -6,15 +6,28 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        doctorthemes: {
-          "primary": "#0FCFEC",
-          "secondary": "#19D3AE",
-          "accent": "#3A4256",
-          "neutral": "#3D4451",
+        mytheme: {
+
+          "primary": "#6419E6",
+
+          "secondary": "#D926A9",
+
+          "accent": "#1FB2A6",
+
+          "neutral": "#191D24",
+
           "base-100": "#FFFFFF",
-        }
-      }
-    ]
+
+          "info": "#3ABFF8",
+
+          "success": "#36D399",
+
+          "warning": "#FBBD23",
+
+          "error": "#F87272",
+        },
+      },
+    ],
   },
   theme: {
     extend: {},
