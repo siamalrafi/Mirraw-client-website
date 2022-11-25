@@ -19,14 +19,20 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 updateUser(data.name, data.userType)
                     .then(() => {
+                        signToast();
+                        const userInformation = {
+                            name: user?.displayName,
+                            email: user?.email,
+                            userType: data?.userType
+                        };
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(user)
+                            body: JSON.stringify(userInformation)
                         })
                             .then(res => res.json())
                             .then(data => {

@@ -26,15 +26,14 @@ const AuthProvider = ({ children }) => {
 
     const updateUser = (name, userType) => {
         return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: userType
+            displayName: name
         })
     };
 
     const googelSign = () => {
         return signInWithPopup(auth, googleProvider)
 
-    } 
+    }
 
     const logOut = () => {
         setLoading(true);
