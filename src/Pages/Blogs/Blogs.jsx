@@ -5,7 +5,7 @@ const Blogs = () => {
         <div>
             <section className="bg-base-200 text-black">
                 <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-                    <h2 className="text-2xl font-semibold sm:text-4xl">Our Blogs Are Here.</h2>
+                    <h2 className="text-2xl font-semibold sm:text-4xl font-bold">Our Blogs Are Here.</h2>
 
                     <div className="space-y-4 py-5">
                         <details className="w-full border rounded-lg">
