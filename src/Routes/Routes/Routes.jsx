@@ -10,6 +10,7 @@ import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
 import Buyer from '../../Pages/DashBoard/Buyers/Buyers';
 import Seller from '../../Pages/DashBoard/Seller/Seller';
 import Admin from '../../Pages/DashBoard/Admin/Admin';
+import Blogs from "../../Pages/Blogs/Blogs";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
                     </PrivateRoute>,
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/products/${params.id}`)
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/login',

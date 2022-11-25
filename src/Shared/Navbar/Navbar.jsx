@@ -10,7 +10,7 @@ const Navbar = () => {
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
-        <li><Link to='/'>Contact Us</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
         {
             user ?
                 <>
