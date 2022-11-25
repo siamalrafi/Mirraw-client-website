@@ -19,7 +19,7 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                // console.log(user);
+
 
                 updateUser(data.name, data.userType)
                     .then(() => {
@@ -37,6 +37,7 @@ const SignUp = () => {
                             .then(data => {
                                 console.log(data);
                                 signToast();
+                                navigate('/');
                             })
                     })
                     .catch(err => console.log(err));
@@ -52,7 +53,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 signToast();
-                navigate('/');
+
                 console.log(user);
                 const userInformation = {
                     name: user?.displayName,
@@ -68,6 +69,7 @@ const SignUp = () => {
                     .then(data => {
                         console.log(data);
                         signToast();
+                        navigate('/');
                     })
 
             })
