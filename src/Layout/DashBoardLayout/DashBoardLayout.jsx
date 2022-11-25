@@ -8,8 +8,7 @@ const DashBoardLayout = () => {
     const { user } = useContext(AuthContext);
     const [userInformation, setUserInformation] = useState();
 
-    console.log(user.photoURL);
-
+ 
     useEffect(() => {
         fetch(`http://localhost:5000/users?email=${user?.email}`, {
             headers: {
