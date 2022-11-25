@@ -7,6 +7,10 @@ import DisplayError from "../../Shared/DisplayError/DisplayError";
 import SingleCategory from "../../Pages/SingleCategory/SingleCategory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
+import Buyer from '../../Pages/DashBoard/Buyers/Buyers';
+import Seller from '../../Pages/DashBoard/Seller/Seller';
+import Admin from '../../Pages/DashBoard/Admin/Admin';
+
 
 const router = createBrowserRouter([
     {
@@ -41,8 +45,22 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+
+
         errorElement: <DisplayError></DisplayError>,
         children: [
+            {
+                path: '/dashboard/buyer',
+                element: <Buyer></Buyer>
+            },
+            {
+                path: '/dashboard/seller',
+                element: <Seller></Seller>
+            },
+            {
+                path: '/dashboard/admin',
+                element: <Admin></Admin>
+            }
         ]
     }
 

@@ -22,12 +22,12 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
+
                 const currentUser = {
                     email: data.email,
                 };
+                console.log(currentUser);
                 loginToast();
-
-
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
@@ -37,10 +37,10 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-
                         console.log(data);
+                        navigate(from, { replace: true });
+                        localStorage.setItem('accessToken', data.token);
 
-                        localStorage.setItem('accessToken', data.token)
                     })
 
 

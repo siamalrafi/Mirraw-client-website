@@ -23,32 +23,15 @@ const SignUp = () => {
 
                 updateUser(data.name, data.userType)
                     .then(() => {
-
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
+                            headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(user)
                         })
                             .then(res => res.json())
                             .then(data => {
-                                signToast();
-                                navigate('/')
-                                console.log('data', data);
+                                console.log(data);
                             })
-
-
-
-
-
-
-
-
-
-
-
-
                     })
                     .catch(err => console.log(err));
             })
