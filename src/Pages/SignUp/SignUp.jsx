@@ -23,7 +23,6 @@ const SignUp = () => {
 
                 updateUser(data.name, data.userType)
                     .then(() => {
-                        signToast();
                         const userInformation = {
                             name: user?.displayName,
                             email: user?.email,
@@ -52,8 +51,25 @@ const SignUp = () => {
         googelSign()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                signToast();
                 navigate('/');
+                console.log(user);
+                const userInformation = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    userType: 'Buyer'
+                };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userInformation)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        signToast();
+                    })
+
             })
             .then(error => {
                 console.log(error);
@@ -105,10 +121,6 @@ const SignUp = () => {
                         </select>
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
-
-
-
-
 
 
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
