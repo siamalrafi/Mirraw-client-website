@@ -31,6 +31,7 @@ const SignUp = () => {
                             .then(res => res.json())
                             .then(data => {
                                 console.log(data);
+                                signToast();
                             })
                     })
                     .catch(err => console.log(err));

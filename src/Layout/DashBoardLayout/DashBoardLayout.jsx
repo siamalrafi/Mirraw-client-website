@@ -1,3 +1,4 @@
+import { faTrafficLight } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -5,7 +6,9 @@ import Navbar from '../../Shared/Navbar/Navbar';
 
 const DashBoardLayout = () => {
     const { user } = useContext(AuthContext);
-    const [userInformation, setUserInformation] = useState('');
+    const [userInformation, setUserInformation] = useState();
+
+    console.log(user.photoURL);
 
     useEffect(() => {
         fetch(`http://localhost:5000/users?email=${user?.email}`, {
@@ -20,7 +23,7 @@ const DashBoardLayout = () => {
             })
     }, [user?.email]);
 
-    console.log(userInformation);
+
 
     return (
         <div>
