@@ -8,7 +8,7 @@ const DashBoardLayout = () => {
     const { user } = useContext(AuthContext);
     const [userInformation, setUserInformation] = useState();
 
- 
+
     useEffect(() => {
         fetch(`http://localhost:5000/users?email=${user?.email}`, {
             headers: {
@@ -18,7 +18,7 @@ const DashBoardLayout = () => {
             .then(res => res.json())
             .then(data => {
                 setUserInformation(data);
-                // console.log(data);
+                console.log(data);
             })
     }, [user?.email]);
 

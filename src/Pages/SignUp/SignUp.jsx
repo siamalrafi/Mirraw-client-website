@@ -20,6 +20,28 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
 
+
+                const currentUser = {
+                    email: data?.email,
+                };
+                console.log(currentUser);
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('accessToken', data.token);
+                        navigate('/');
+                    })
+
+
+
+
+
                 updateUser(data.name, data.userType)
                     .then(() => {
                         const userInformation = {
@@ -35,7 +57,7 @@ const SignUp = () => {
                             .then(res => res.json())
                             .then(data => {
                                 signToast();
-                                navigate('/');
+                                navigate('/')
                             })
                     })
                     .catch(err => console.log(err));
