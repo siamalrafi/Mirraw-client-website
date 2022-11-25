@@ -37,7 +37,6 @@ const DashBoardLayout = () => {
                     <label htmlFor="deshboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-
                         <li><Link to={'/dashboard/buyer'}>Buyer </Link></li>
                         <li><Link to={'/dashboard/seller'}>Seller</Link></li>
                         <li><Link to={'/dashboard/admin'}> Admin </Link></li>
