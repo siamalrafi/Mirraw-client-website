@@ -1,18 +1,20 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Buyer = () => {
     const { user } = useContext(AuthContext);
 
-    const { data: bookings = [], refetch, isLoading } = useQuery({
+    const { data: bookings = [], isLoading, refetch } = useQuery({
         queryKey: ['bookings'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/bookings')
             const data = await res.json();
             return data
         }
-    }); 
+    });
 
 
     return (
@@ -25,11 +27,12 @@ const Buyer = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>ProductName</th>
-                            <th>address</th>
-                            <th>price</th>
+                            <th className='font-bold'>No.</th>
+                            <th className='font-bold'>Name</th>
+                            <th className='font-bold'>ProductName</th>
+                            <th className='font-bold'>address</th>
+                            <th className='font-bold'>price</th>
+                            <th className='font-bold'>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,9 +44,15 @@ const Buyer = () => {
                                     <td>{booking?.ProductName}</td>
                                     <td>{booking?.address}</td>
                                     <td>{booking?.price}</td>
+                                    <td>
+
+                                        <button className='btn btn-sm'>
+                                            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                                        </button>
+                                    </td>
                                 </tr>
                             )
-                        } 
+                        }
 
                     </tbody>
                 </table>

@@ -4,8 +4,6 @@ import Service from './Service';
 import Loading from '../../../Shared/Loading/Loading'
 
 const Categories = () => {
-    // const [servicesData, setServicesData] = useState();
-
 
     const { data: servicesData = [], refetch, isLoading } = useQuery({
         queryKey: ['category'],
@@ -15,8 +13,9 @@ const Categories = () => {
             return data
         }
     });
-
-    console.log(servicesData);
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
     return (
