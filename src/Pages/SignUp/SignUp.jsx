@@ -147,8 +147,6 @@ const SignUp = () => {
                         </select>
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
-
-
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     {/* <Toaster /> */}
