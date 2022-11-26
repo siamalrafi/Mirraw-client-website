@@ -16,9 +16,7 @@ const Categories = () => {
         }
     });
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+    console.log(servicesData);
 
 
     return (

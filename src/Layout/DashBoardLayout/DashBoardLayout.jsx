@@ -21,7 +21,6 @@ const DashBoardLayout = () => {
             })
     }, [user?.email]);
 
-    // console.log(userInformation); //available for testing
 
     return (
         <div>
