@@ -24,16 +24,7 @@ const AdvertisedCard = ({ myProduct }) => {
                         </h2>
                     </div>
                     <hr /><hr /><hr />
-
                     <p>{description}</p>
-
-                    <div className="mt-8 card-actions justify-between">
-                        <button
-                            className="btn btn-primary btn-sm">Advertised </button>
-
-                        <button
-                            className="btn btn-primary btn-sm">Delete</button>
-                    </div>
                 </div>
             </div>
         </div>

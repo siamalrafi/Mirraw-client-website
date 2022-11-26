@@ -15,21 +15,21 @@ const Advertised = () => {
 
     return (
         <div>
-
             <div className='text-center mt-16'>
                 <h2 className='font-bold text-primary text-2xl uppercase'>Advertised Product</h2>
                 <h3 className='text-3xl'>Advertised Products We Provide</h3>
             </div>
-            {
-                advertised?.map(adver => <AdvertisedCard
-                    key={adver._id}
-                    myProduct={adver}
-                ></AdvertisedCard>
 
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 justify-self-center">
+                {
+                    advertised?.map(adver => <AdvertisedCard
+                        key={adver._id}
+                        myProduct={adver}
+                    ></AdvertisedCard>
+                    )
+                }
 
-                )
-            }
-
+            </div>
 
         </div>
 

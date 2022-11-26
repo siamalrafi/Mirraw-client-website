@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
-const SellerCard = ({ myProduct }) => {
+const SellerCard = ({ myProduct, refetch }) => {
     const { user } = useContext(AuthContext);
     const { _id, productName, price, description, condition, location, phone, productCategory, year } = myProduct;
 
@@ -33,6 +33,7 @@ const SellerCard = ({ myProduct }) => {
             .then(data => {
                 if (data.deletedCount) {
                     toast.success('Your product has been deleted');
+                    refetch();
                 }
             });
     }

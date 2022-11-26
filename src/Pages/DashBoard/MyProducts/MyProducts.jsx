@@ -31,6 +31,7 @@ const Seller = () => {
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 justify-self-center">
                 {
                     myProducts?.map(myProduct => <SellerCard
+                        refetch={refetch}
                         key={myProduct._id}
                         myProduct={myProduct}>
                     </SellerCard>)
