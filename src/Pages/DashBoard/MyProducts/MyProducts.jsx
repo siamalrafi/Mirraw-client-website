@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../../Shared/Loading/Loading';
+import SellerCard from '../SellerCard/SellerCard';
 
 const Seller = () => {
     const { user } = useContext(AuthContext);
@@ -30,35 +31,15 @@ const Seller = () => {
             <h1 className='text-center my-5 font-bold text-2xl'>
                 Here is My All Products.
             </h1>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th className='font-bold'>No.</th>
-                            <th className='font-bold'>Name</th>
-                            <th className='font-bold'>ProductName</th>
-                            <th className='font-bold'>address</th>
-                            <th className='font-bold'>price</th>
-                            <th className='font-bold'>Delete Products</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Ganderton</td>
-                            <td>Quality  </td>
-                            <td>Blue</td>
-                            <td>300</td>
-                            <td className='flex justify-center'>
-                                <button
-                                    className='btn btn-sm'>
-                                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-                                </button>
-                            </td>
-                        </tr>
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+                {
+                    myProducts?.map(myProduct => <SellerCard
+                        key={myProduct._id}
+                        myProduct={myProduct}>
+                    </SellerCard>)
+                }
 
-                    </tbody>
-                </table>
+
             </div>
         </div>
     );
