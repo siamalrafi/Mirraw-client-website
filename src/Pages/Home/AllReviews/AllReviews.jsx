@@ -4,7 +4,7 @@ import people2 from '../../../assets/images/people2.png'
 import people3 from '../../../assets/images/people3.png'
 import Review from './Review';
 
-const Testimonial = () => {
+const AllReviews = () => {
 
     const reviews = [
         {
@@ -48,7 +48,7 @@ const Testimonial = () => {
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3'>
 
                 {
-                    reviews.map(review => <Review 
+                    reviews.map(review => <Review
                         key={review._id}
                         reviewData={review}>
                     </Review>)
@@ -59,4 +59,4 @@ const Testimonial = () => {
     );
 };
 
-export default Testimonial;
+export default AllReviews;
