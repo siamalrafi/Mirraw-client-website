@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AddProduct = () => {
+    const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [signUpError, setSignUPError] = useState('');
     const navigate = useNavigate();
 
-
-
-
     const handleAddProducts = (data) => {
-        const ProductInfo = {
+        const productInfo = {
+            email: data.email,
             productName: data.productname,
             price: data.price,
             condition: data.condition,
@@ -21,11 +21,12 @@ const AddProduct = () => {
             productCategory: data.productcategory,
             description: data.description,
             year: data.year,
-        }
+        };
+ 
         fetch('http://localhost:5000/myProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(ProductInfo)
+            body: JSON.stringify(productInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -38,15 +39,21 @@ const AddProduct = () => {
                 toast.error('something went wrong, please try again.')
                 setSignUPError(error)
             })
-
-    }
-
+    };
+    
 
     return (
         <div>
-            <h1>AddProduct</h1>
+            <h1 className='text-center my-5 font-bold text-2xl'>
+                Add Your Products.
+            </h1>
             <form onSubmit={handleSubmit(handleAddProducts)}>
-
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">My Email</span></label>
+                    <input type="text" {...register("email", {
+                    })} defaultValue={user?.email} className="input input-bordered w-full max-w-xs" disabled />
+                    {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                </div>
 
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-items-center lg:gap-10 md:gap-6 sm:gap-4'>
                     <div className="form-control w-full max-w-xs">
