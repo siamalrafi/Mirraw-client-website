@@ -1,4 +1,3 @@
-import { faTrafficLight } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -56,7 +55,10 @@ const DashBoardLayout = () => {
 
                         {
                             userInformation?.userType === 'Admin' &&
-                            <li><Link to={'/dashboard/Admin'}>Admin</Link></li>
+                            <>
+                                <li><Link to={'/dashboard/allbuyer'}>All Buyers</Link></li>
+                                <li><Link to={'/dashboard/allseller'}>All Seller</Link></li>
+                            </>
                         }
 
                     </ul>

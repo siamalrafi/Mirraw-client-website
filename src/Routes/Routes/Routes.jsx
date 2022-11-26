@@ -9,9 +9,10 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
 import Buyer from '../../Pages/DashBoard/Buyers/Buyers';
 import Seller from '../../Pages/DashBoard/Seller/Seller';
-import Admin from '../../Pages/DashBoard/Admin/Admin';
 import Blogs from "../../Pages/Blogs/Blogs";
 import AddProduct from "../../Pages/DashBoard/AddProduct/AddProduct";
+import AllBuyer from "../../Pages/DashBoard/AllBuyer/AllBuyer";
+import AllSeller from "../../Pages/DashBoard/AllSeller/AllSeller";
 
 
 const router = createBrowserRouter([
@@ -68,8 +69,12 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             },
             {
-                path: '/dashboard/admin',
-                element: <Admin></Admin>
+                path: '/dashboard/allbuyer',
+                element: <AllBuyer></AllBuyer>
+            },
+            {
+                path: '/dashboard/allseller',
+                element: <AllSeller></AllSeller>
             }
         ]
     }

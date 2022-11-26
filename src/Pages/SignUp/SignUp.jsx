@@ -143,6 +143,7 @@ const SignUp = () => {
                             className="select select-bordered w-full max-w-xs">
                             <option disabled selected>Buyer</option>
                             <option>Seller</option>
+                            <option>Admin</option>
                         </select>
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
