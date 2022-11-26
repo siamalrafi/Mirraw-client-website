@@ -22,7 +22,9 @@ const AddProduct = () => {
             description: data.description,
             year: data.year,
         };
- 
+
+        console.log(productInfo);
+
         fetch('http://localhost:5000/myProducts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -40,7 +42,7 @@ const AddProduct = () => {
                 setSignUPError(error)
             })
     };
-    
+
 
     return (
         <div>
@@ -51,7 +53,7 @@ const AddProduct = () => {
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">My Email</span></label>
                     <input type="text" {...register("email", {
-                    })} defaultValue={user?.email} className="input input-bordered w-full max-w-xs" disabled />
+                    })} defaultValue={user?.email} className="input input-bordered w-full max-w-xs" />
                     {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                 </div>
 
