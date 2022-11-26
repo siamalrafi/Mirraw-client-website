@@ -9,8 +9,7 @@ function App({ children }) {
   return (
     <div className='max-w-[1440px] mx-auto'>
       <RouterProvider router={router}>
-        {children}
-        <Toaster />
+        {children} 
       </RouterProvider>
     </div>
   );

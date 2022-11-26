@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const loginToast = () => toast.success('User Login Successfully.');
-    const loginErrorToast = () => toast.error('Login Error occurred.');
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn, googelSign } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
@@ -27,7 +25,7 @@ const Login = () => {
                     email: data.email,
                 };
                 console.log(currentUser);
-                loginToast();
+                // loginToast();
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
@@ -38,19 +36,15 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
+                        toast.success(' login successfully')
                         navigate(from, { replace: true });
                         localStorage.setItem('accessToken', data.token);
 
                     })
-
-
-
-
-                // navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message)
-                loginErrorToast();
+                toast.error('something went wrong, try again.')
                 setLoginError(error.message);
             });
     };
@@ -60,7 +54,6 @@ const Login = () => {
         googelSign()
             .then(result => {
                 const user = result.user;
-                loginToast();
 
                 const currentUser = {
                     email: user?.email,
@@ -92,12 +85,13 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        loginToast();
+                        toast.success('User Login Successfully.')
                         navigate('/');
 
                     })
             })
             .then(error => {
+                toast.error('Something went wrong, try again. ')
                 console.log(error);
             })
     }
@@ -139,8 +133,7 @@ const Login = () => {
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
-                    <Toaster />
-                </form>
+                 </form>
                 <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <button
