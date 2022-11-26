@@ -7,12 +7,12 @@ import DisplayError from "../../Shared/DisplayError/DisplayError";
 import SingleCategory from "../../Pages/SingleCategory/SingleCategory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashBoardLayout from "../../Layout/DashBoardLayout/DashBoardLayout";
-import Buyer from '../../Pages/DashBoard/Buyers/Buyers';
-import Seller from '../../Pages/DashBoard/Seller/Seller';
 import Blogs from "../../Pages/Blogs/Blogs";
 import AddProduct from "../../Pages/DashBoard/AddProduct/AddProduct";
 import AllBuyer from "../../Pages/DashBoard/AllBuyer/AllBuyer";
 import AllSeller from "../../Pages/DashBoard/AllSeller/AllSeller";
+import MyBooking from "../../Pages/DashBoard/MyBooking/MyBooking";
+import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
 
 
 const router = createBrowserRouter([
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
         errorElement: <DisplayError></DisplayError>,
         children: [
             {
-                path: '/dashboard/buyer',
-                element: <Buyer></Buyer>
+                path: '/dashboard/mybooking',
+                element: <MyBooking></MyBooking>
             },
             {
-                path: '/dashboard/seller',
-                element: <Seller></Seller>
+                path: '/dashboard/myproducts',
+                element: <MyProducts></MyProducts>
             },
             {
                 path: '/dashboard/addproduct',

@@ -5,7 +5,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
-const Buyer = () => {
+const MyBooking = () => {
     const { user } = useContext(AuthContext);
 
     const { data: bookings = [], isLoading, refetch } = useQuery({
@@ -85,4 +85,4 @@ const Buyer = () => {
     );
 };
 
-export default Buyer;
+export default MyBooking;
