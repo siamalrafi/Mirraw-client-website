@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const SellerCard = ({ myProduct }) => {
-    const { productName, price, description, condition, location, phone, productCategory, year } = myProduct;
+    const { user } = useContext(AuthContext);
+    const { _id, productName, price, description, condition, location, phone, productCategory, year } = myProduct;
+
+
+
+    const handleProductDelete = (id) => {
+
+
+        fetch(`http://localhost:5000/myProducts/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Your product has been deleted');
+                }
+                console.log(data);
+            })
+    }
+
 
     return (
         <div>
-            <div className="card w-96 bg-base-300 shadow-xl">
+            <div className="card w-96 mt-5 bg-base-300 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">
                         Product Name :  {productName}
@@ -30,8 +51,13 @@ const SellerCard = ({ myProduct }) => {
 
 
                     <div className="mt-8 card-actions justify-between">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                        <button
+
+                            className="btn btn-primary btn-sm">Advertised </button>
+
+                        <button
+                            onClick={() => handleProductDelete(_id)}
+                            className="btn btn-primary btn-sm">Delete</button>
                     </div>
                 </div>
             </div>        </div>
