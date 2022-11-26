@@ -7,7 +7,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Buyer = () => {
     const { user } = useContext(AuthContext);
- 
+
     const { data: bookings = [], isLoading, refetch } = useQuery({
         queryKey: ['bookings'],
         queryFn: async () => {
