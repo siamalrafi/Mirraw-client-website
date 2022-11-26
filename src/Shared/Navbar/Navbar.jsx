@@ -24,6 +24,8 @@ const Navbar = () => {
                     <li><Link to='/login'>Login</Link></li>
                 </>
         }
+
+
         <div className="form-control mt-2">
             <label className="label cursor-pointer">
             </label>

@@ -11,10 +11,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
 
-
     const handleSignUp = (data) => {
-
-        setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -67,7 +64,6 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
 
-
                 const currentUser = {
                     email: user?.email,
                 };
@@ -83,10 +79,7 @@ const SignUp = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem('accessToken', data.token);
-                    })
-
-
-
+                    });
 
                 const userInformation = {
                     name: user?.displayName,
@@ -108,9 +101,7 @@ const SignUp = () => {
             .then(error => {
                 console.log(error);
             })
-    }
-
-
+    };
 
     return (
         <div className='h-[600px] flex justify-center items-center'>

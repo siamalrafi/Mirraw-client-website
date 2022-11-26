@@ -86,7 +86,7 @@ const Login = () => {
                     .then(data => {
                         console.log(data);
                         toast.success('User Login Successfully.')
-                        navigate('/');
+                        navigate(from, { replace: true });
 
                     })
             })
@@ -133,7 +133,7 @@ const Login = () => {
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
-                 </form>
+                </form>
                 <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <button

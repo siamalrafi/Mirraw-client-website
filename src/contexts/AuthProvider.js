@@ -11,7 +11,6 @@ const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-    const [theme, setTheme] = useState(false);
     const [displayId, setDisplayID] = useState('');
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -51,7 +50,7 @@ const AuthProvider = ({ children }) => {
         });
 
         return () => unsubscribe();
-    }, [])
+    }, []);
 
     const authInfo = {
         createUser,
