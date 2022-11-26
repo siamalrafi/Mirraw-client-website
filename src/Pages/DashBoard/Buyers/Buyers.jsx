@@ -32,7 +32,7 @@ const Buyer = () => {
                             <th className='font-bold'>ProductName</th>
                             <th className='font-bold'>address</th>
                             <th className='font-bold'>price</th>
-                            <th className='font-bold'>Delete</th>
+                            <th className='font-bold'>Cancel Booking</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,8 +44,7 @@ const Buyer = () => {
                                     <td>{booking?.ProductName}</td>
                                     <td>{booking?.address}</td>
                                     <td>{booking?.price}</td>
-                                    <td>
-
+                                    <td className='flex justify-center'>
                                         <button className='btn btn-sm'>
                                             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                                         </button>
