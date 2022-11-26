@@ -22,6 +22,13 @@ const DashBoardLayout = () => {
     }, [user?.email]);
 
 
+
+
+    console.log(userInformation?.userType);
+
+
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -34,16 +41,28 @@ const DashBoardLayout = () => {
                     <label htmlFor="deshboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                        <li><Link to={'/dashboard/buyer'}>Buyer </Link></li>
-                        <li><Link to={'/dashboard/seller'}>Seller</Link></li>
-                        <li><Link to={'/dashboard/admin'}> Admin </Link></li>
+                        {
+                            userInformation?.userType === 'Seller' &&
+                            <li><Link to={'/dashboard/seller'}>Seller</Link></li>
+                        }
+
+                        {
+                            userInformation?.userType === 'Buyer' &&
+                            <li><Link to={'/dashboard/buyer'}>Buyer</Link></li>
+                        }
+
+                        {
+                            userInformation?.userType === 'Admin' &&
+                            <li><Link to={'/dashboard/Admin'}>Admin</Link></li>
+                        }
+
                     </ul>
 
                 </div>
             </div>
 
 
-        </div>
+        </div >
     );
 };
 
