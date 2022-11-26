@@ -18,11 +18,10 @@ const DashBoardLayout = () => {
             .then(res => res.json())
             .then(data => {
                 setUserInformation(data);
-                console.log(data);
             })
     }, [user?.email]);
 
-    console.log(userInformation);
+    // console.log(userInformation); //available for testing
 
     return (
         <div>

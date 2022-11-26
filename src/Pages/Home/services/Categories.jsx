@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Service from './Service';
 import Loading from '../../../Shared/Loading/Loading'
 
