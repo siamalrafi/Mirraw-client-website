@@ -6,11 +6,27 @@ const SellerCard = ({ myProduct }) => {
     const { user } = useContext(AuthContext);
     const { _id, productName, price, description, condition, location, phone, productCategory, year } = myProduct;
 
+    const advertiseProduct = myProduct;
+
+
+    const handleProductAdv = () => {
+        fetch('http://localhost:5000/advertised', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(advertiseProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Your product will be advertised.')
+                }
+
+            })
+    }
+
 
 
     const handleProductDelete = (id) => {
-
-
         fetch(`http://localhost:5000/myProducts/${id}`, {
             method: 'DELETE'
         })
@@ -19,8 +35,7 @@ const SellerCard = ({ myProduct }) => {
                 if (data.deletedCount) {
                     toast.success('Your product has been deleted');
                 }
-                console.log(data);
-            })
+            });
     }
 
 
@@ -52,7 +67,7 @@ const SellerCard = ({ myProduct }) => {
 
                     <div className="mt-8 card-actions justify-between">
                         <button
-
+                            onClick={() => handleProductAdv()}
                             className="btn btn-primary btn-sm">Advertised </button>
 
                         <button
@@ -60,7 +75,7 @@ const SellerCard = ({ myProduct }) => {
                             className="btn btn-primary btn-sm">Delete</button>
                     </div>
                 </div>
-            </div>        </div>
+            </div>        </div >
     );
 };
 

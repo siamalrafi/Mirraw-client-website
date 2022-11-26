@@ -61,7 +61,7 @@ const router = createBrowserRouter([
                 element: <MyBooking></MyBooking>
             },
             {
-                path: '/dashboard/myproducts',
+                path: '/dashboard/',
                 element: <MyProducts></MyProducts>
             },
             {

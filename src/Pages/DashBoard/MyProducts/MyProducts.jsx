@@ -19,12 +19,9 @@ const Seller = () => {
     });
 
 
-    
-
     if (isLoading) {
         return <Loading></Loading>
-    }
-
+    };
 
     return (
         <div>
