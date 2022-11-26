@@ -11,6 +11,7 @@ import Buyer from '../../Pages/DashBoard/Buyers/Buyers';
 import Seller from '../../Pages/DashBoard/Seller/Seller';
 import Admin from '../../Pages/DashBoard/Admin/Admin';
 import Blogs from "../../Pages/Blogs/Blogs";
+import AddProduct from "../../Pages/DashBoard/AddProduct/AddProduct";
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/seller',
                 element: <Seller></Seller>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
             },
             {
                 path: '/dashboard/admin',
