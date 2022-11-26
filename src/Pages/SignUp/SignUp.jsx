@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
-    const signToast = () => toast.success('User Created Successfully.');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, googelSign } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
@@ -19,7 +18,6 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-
 
                 const currentUser = {
                     email: data?.email,
@@ -51,7 +49,7 @@ const SignUp = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                signToast();
+                                toast.success('User Created Successfully.');
                                 navigate('/')
                             })
                     })
@@ -60,6 +58,7 @@ const SignUp = () => {
             .catch(error => {
                 console.log(error)
                 setSignUPError(error.message)
+                toast.errors('something went wrong, please try again')
             });
     }
 
@@ -67,7 +66,7 @@ const SignUp = () => {
         googelSign()
             .then(result => {
                 const user = result.user;
-                signToast();
+
 
                 const currentUser = {
                     email: user?.email,
@@ -102,11 +101,8 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        signToast();
+                        toast.success('SignUp successful.')
                         navigate('/');
-
-
-
                     })
             })
             .then(error => {
@@ -163,7 +159,7 @@ const SignUp = () => {
 
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
-                    <Toaster />
+                    {/* <Toaster /> */}
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>

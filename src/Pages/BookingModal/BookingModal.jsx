@@ -3,8 +3,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ modalData, }) => {
-    const mookingToast = () => toast.success('Booking confirmed');
-    const mookingToastError = () => toast.error('Error! Please try again');
+    // const mookingToast = () => toast.success('Booking confirmed');
+    // const mookingToastError = () => toast.error('Error! Please try again');
     const { user } = useContext(AuthContext);
 
     const handleBooking = (event) => {
@@ -36,10 +36,10 @@ const BookingModal = ({ modalData, }) => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    mookingToast();
+                    toast.success('Booking confirmed');
                 }
                 else {
-                    mookingToastError();
+                    toast.error('Error! Please try again');
                 }
             })
     }
@@ -68,7 +68,6 @@ const BookingModal = ({ modalData, }) => {
                         <input name='price' type="text" className="input w-full input-bordered "
                             defaultValue={modalData?.ResalePrice} disabled />
                         <br />
-                        <Toaster />
                         <input disableded
                             className='btn btn-accent w-full' type="submit" value="Submit" />
                     </form>
