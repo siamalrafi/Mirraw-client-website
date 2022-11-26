@@ -9,6 +9,13 @@ const AddProduct = () => {
     const handleAddProducts = (data) => {
         console.log(data.productname);
         console.log(data.price);
+        console.log(data.condition);
+        console.log(data.phone);
+        console.log(data.location);
+        console.log(data.productcategory);
+        console.log(data.description);
+
+
 
     }
 
@@ -48,6 +55,42 @@ const AddProduct = () => {
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
 
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Phone Number</span></label>
+                    <input type="number" {...register("phone", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Location</span></label>
+                    <input type="text" {...register("location", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Product Category</span></label>
+                    <input type="text" {...register("productcategory", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Description</span></label>
+                    <input type="text" {...register("description", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Year of Purchase</span></label>
+                    <input type="number" {...register("year", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
 
 
 
