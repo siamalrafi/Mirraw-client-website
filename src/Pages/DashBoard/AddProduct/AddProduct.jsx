@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [signUpError, setSignUPError] = useState('');
+    const navigate = useNavigate();
+
+
 
 
     const handleAddProducts = (data) => {
-        const addProductInfo = {
+        const ProductInfo = {
             productName: data.productname,
             price: data.price,
             condition: data.condition,
@@ -17,10 +22,22 @@ const AddProduct = () => {
             description: data.description,
             year: data.year,
         }
-
-
-
-
+        fetch('http://localhost:5000/myProducts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(ProductInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Your product has been added');
+                    navigate('/dashboard/myproducts');
+                }
+            })
+            .catch(error => {
+                toast.error('something went wrong, please try again.')
+                setSignUPError(error)
+            })
 
     }
 
