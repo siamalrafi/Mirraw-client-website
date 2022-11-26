@@ -1,16 +1,24 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import Service from './Service';
+import Loading from '../../../Shared/Loading/Loading'
 
 const Categories = () => {
-    const [servicesData, setServicesData] = useState();
-    useEffect(() => {
-        fetch('http://localhost:5000/category')
-            .then(res => res.json())
-            .then(data => {
-                setServicesData(data)
-                // console.log(data);
-            })
-    }, [])
+    // const [servicesData, setServicesData] = useState();
+
+
+    const { data: servicesData = [], refetch, isLoading } = useQuery({
+        queryKey: ['category'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/category')
+            const data = await res.json();
+            return data
+        }
+    });
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
     return (
