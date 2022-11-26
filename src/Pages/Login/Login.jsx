@@ -60,14 +60,49 @@ const Login = () => {
         googelSign()
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                navigate('/');
+                loginToast();
 
+                const currentUser = {
+                    email: user?.email,
+                };
+                console.log(currentUser);
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('accessToken', data.token);
+                    })
+
+                const userInformation = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    userType: 'Buyer'
+                };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userInformation)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        loginToast();
+                        navigate('/');
+
+                    })
             })
             .then(error => {
                 console.log(error);
             })
     }
+
+
 
 
 

@@ -22,7 +22,7 @@ const DashBoardLayout = () => {
             })
     }, [user?.email]);
 
-
+    console.log(userInformation);
 
     return (
         <div>

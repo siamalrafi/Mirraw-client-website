@@ -5,12 +5,12 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [checked, setChecked] = useState();
-    console.log(user?.displayName);
+
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>About</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/'>Contact Us</Link></li>
         {
             user ?
                 <>
@@ -34,11 +34,11 @@ const Navbar = () => {
                     checked ?
 
                         <span className="ml-2 text-sm font-medium text-gray-900">
-                            Light
+                            Dark
                         </span>
                         :
                         <span className="ml-2 text-sm font-medium text-gray-900">
-                            Dark
+                            Light
                         </span>
                 }
             </label>
@@ -60,13 +60,18 @@ const Navbar = () => {
                             {manuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-xl uppercase">mirraw</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Makbo sell</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {manuItems}
                     </ul>
                 </div>
+
+                <label htmlFor="deshboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+
 
             </div>
         </div>
