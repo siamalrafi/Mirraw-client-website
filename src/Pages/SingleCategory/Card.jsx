@@ -11,17 +11,33 @@ const Card = ({ product, setModalData, }) => {
 
 
     const handleReport = (id) => {
-        // fetch(`http://localhost:5000/report/${id}`, {
-        //     method: 'PUT',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify()
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount === 1) {
-        //             toast.success('Report Successfully.')
-        //         }
-        //     });
+        fetch(`http://localhost:5000/report/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount === 1) {
+                    toast.success('Products Report Successfully.')
+                }
+            });
+    };
+
+
+    const handleReportSeller = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/reportseller/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount === 1) {
+                    toast.success('Seller Reported Successfully.')
+                }
+            });
     }
 
 
@@ -69,14 +85,19 @@ const Card = ({ product, setModalData, }) => {
                             onClick={() => handleReport(product._id)}
                             htmlFor="booking-modal"
                             className="btn btn-primary btn-sm"
-                        >Admin Report</label>
-
+                        >Report Product</label>
                         <label
-                            onClick={() => setModalData(product)}
+                            onClick={() => handleReportSeller(product._id)}
                             htmlFor="booking-modal"
                             className="btn btn-primary btn-sm"
-                        >Book now</label>
+                        >Report Seller</label>
                     </div>
+
+                    <label
+                        onClick={() => setModalData(product)}
+                        htmlFor="booking-modal"
+                        className="btn btn-primary btn-sm"
+                    >Book now</label>
 
                 </div>
             </div>

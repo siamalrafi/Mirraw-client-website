@@ -12,7 +12,7 @@ const AddProduct = () => {
 
     const handleAddProducts = (data) => {
         const productInfo = {
-            email: data.email,
+            email: user.email,
             productName: data.productname,
             price: data.price,
             condition: data.condition,
@@ -50,20 +50,20 @@ const AddProduct = () => {
                 Add Your Products.
             </h1>
             <form onSubmit={handleSubmit(handleAddProducts)}>
-                <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 justify-between'>
-                    <div className="form-control w-full max-w-xs">
+                {/*  <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 justify-between'>
+                  <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">My Email</span></label>
                         <input type="text" {...register("email", {
                         })} defaultValue={user?.email} className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-                    </div>
-                    <div className="form-control w-full max-w-xs">
+                    </div>  
+               <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">My Email</span></label>
                         <input type="text" {...register("email", {
                         })} defaultValue={user?.email} className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-                    </div>
-                </div>
+                    </div>  
+                </div> */}
 
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-items-center lg:gap-10 md:gap-6 sm:gap-4'>
                     <div className="form-control w-full max-w-xs">

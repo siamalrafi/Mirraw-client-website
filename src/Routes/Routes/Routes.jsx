@@ -14,6 +14,7 @@ import AllSeller from "../../Pages/DashBoard/AllSeller/AllSeller";
 import MyBooking from "../../Pages/DashBoard/MyBooking/MyBooking";
 import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
 import ReportedProducts from "../../Pages/DashBoard/ReportedProducts/ReportedProducts";
+import ReportedSeller from "../../Pages/DashBoard/ReportedSeller/ReportedSeller";
 
 
 const router = createBrowserRouter([
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/reportedproducts',
                 element: <ReportedProducts></ReportedProducts>
+            },
+            {
+                path: '/dashboard/reportedsellers',
+                element: <ReportedSeller></ReportedSeller>
             },
         ]
     }

@@ -41,7 +41,7 @@ const SellerCard = ({ myProduct, refetch }) => {
 
     return (
         <div>
-            <div className="card w-96 mt-5 bg-base-300 shadow-xl">
+            <div className="card w-80 mt-5 bg-base-300 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">
                         Product Name :  {productName}
