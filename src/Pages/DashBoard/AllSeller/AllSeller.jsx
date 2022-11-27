@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 const AllSeller = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
 
 
     const { data: allSellers = [], isLoading, refetch } = useQuery({
@@ -16,6 +16,15 @@ const AllSeller = () => {
             return data
         }
     });
+
+
+    const handleDeleteSeller = (id) => {
+
+
+        console.log(id);
+
+    }
+
 
 
     return (
@@ -43,7 +52,10 @@ const AllSeller = () => {
                                     </button>
                                 </td>
                                 <td>
-                                    <button className='btn btn-sm btn-primary'>
+                                    <button
+                                        onClick={() => handleDeleteSeller(allSeller?._id)}
+
+                                        className='btn btn-sm btn-primary'>
                                         Delete
                                     </button>
                                 </td>

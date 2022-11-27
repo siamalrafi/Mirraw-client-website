@@ -25,9 +25,6 @@ const Seller = () => {
 
     return (
         <div>
-            <h1 className='text-center my-5 font-bold text-2xl'>
-                Here is My All Products.
-            </h1>
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 justify-self-center">
                 {
                     myProducts?.map(myProduct => <SellerCard
