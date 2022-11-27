@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import Loading from '../../../Shared/Loading/Loading';
 
 
 
@@ -18,6 +19,9 @@ const AllSeller = () => {
         }
     });
 
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     const handleDeleteSeller = (id) => {
         console.log(id);
