@@ -1,14 +1,14 @@
 import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Card = ({ product, setModalData, }) => {
     const { categoryId, ProductName, picture, ResalePrice, about, location, originalPrice, phone, SellerType, sellerName, years } = product;
-    console.log(product);
+
+
 
     const handleReport = (id) => {
-
         fetch(`http://localhost:5000/report/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -16,10 +16,10 @@ const Card = ({ product, setModalData, }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                toast.success('Report Successfully.')
-            })
-
+                if (data.modifiedCount === 1) {
+                    toast.success('Report Successfully.')
+                }
+            });
     }
 
 
@@ -67,7 +67,7 @@ const Card = ({ product, setModalData, }) => {
                             onClick={() => handleReport(product._id)}
                             htmlFor="booking-modal"
                             className="btn btn-primary btn-sm"
-                        >Admin ReportF</label>
+                        >Admin Report</label>
 
                         <label
                             onClick={() => setModalData(product)}
@@ -78,7 +78,7 @@ const Card = ({ product, setModalData, }) => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
