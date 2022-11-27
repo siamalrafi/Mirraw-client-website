@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
@@ -11,7 +12,7 @@ const AllSeller = () => {
     const { data: allSellers = [], isLoading, refetch } = useQuery({
         queryKey: ['allSellers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller`)
+            const res = await fetch(`http://localhost:5000/buyer`)
             const data = await res.json();
             return data
         }
@@ -19,13 +20,20 @@ const AllSeller = () => {
 
 
     const handleDeleteSeller = (id) => {
-
-
         console.log(id);
+        fetch(`http://localhost:5000/seller/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data, ' deleted');
+                if (data.deletedCount === 1) {
+                    toast.success('successfully deleted ');
+                    refetch();
+                }
+            })
 
-    }
-
-
+    };
 
     return (
         <div>
@@ -41,9 +49,9 @@ const AllSeller = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allSellers?.map(allSeller =>
+                        {allSellers?.map((allSeller, i) =>
                             <tr key={allSeller._id}>
-                                <th>1</th>
+                                <th>{i + 1}</th>
                                 <td>{allSeller?.name}</td>
                                 <td>{allSeller?.email}</td>
                                 <td>
@@ -54,16 +62,13 @@ const AllSeller = () => {
                                 <td>
                                     <button
                                         onClick={() => handleDeleteSeller(allSeller?._id)}
-
                                         className='btn btn-sm btn-primary'>
                                         Delete
                                     </button>
                                 </td>
                             </tr>
 
-
                         )}
-
 
                     </tbody>
                 </table>

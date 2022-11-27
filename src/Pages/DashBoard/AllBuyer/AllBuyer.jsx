@@ -1,21 +1,37 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 const AllBuyer = () => {
     const { user } = useContext(AuthContext);
 
+
     const { data: allbuyers = [], isLoading, refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/buyer`)
+            const res = await fetch(`http://localhost:5000/seller`)
             const data = await res.json();
             return data
         }
     });
 
-    console.log(allbuyers, 'thei is hte');
+    const handleDeleteBuyer = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/buyer/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data, ' deleted');
+                if (data.deletedCount === 1) {
+                    toast.success('successfully deleted ');
+                    refetch();
+                }
+            })
+
+    };
 
 
 
@@ -34,9 +50,9 @@ const AllBuyer = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allbuyers?.map(allbuyer =>
+                        {allbuyers?.map((allbuyer, i) =>
                             <tr key={allbuyer._id}>
-                                <th>1</th>
+                                <th>{i + 1}</th>
                                 <td>{allbuyer?.name}</td>
                                 <td>{allbuyer?.email}</td>
                                 <td>
@@ -45,7 +61,9 @@ const AllBuyer = () => {
                                     </button>
                                 </td>
                                 <td>
-                                    <button className='btn btn-sm btn-primary'>
+                                    <button
+                                        onClick={() => handleDeleteBuyer(allbuyer._id)}
+                                        className='btn btn-sm btn-primary'>
                                         Delete
                                     </button>
                                 </td>

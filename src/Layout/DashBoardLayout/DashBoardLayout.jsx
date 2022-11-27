@@ -23,7 +23,7 @@ const DashBoardLayout = () => {
 
 
 
-    console.log(userInformation?.userType);
+    console.log(userInformation?.auserType);
 
 
 
