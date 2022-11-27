@@ -9,7 +9,7 @@ const AllBuyer = () => {
     const { data: allbuyers = [], isLoading, refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users/${user?.email}`)
+            const res = await fetch(`http://localhost:5000/buyer/${user?.email}`)
             const data = await res.json();
             return data
         }
