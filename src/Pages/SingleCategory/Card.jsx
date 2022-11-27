@@ -1,9 +1,29 @@
 import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext } from 'react';
+import React from 'react';
+import toast from 'react-hot-toast';
 
 const Card = ({ product, setModalData, }) => {
-    const { ProductName, picture, ResalePrice, about, location, originalPrice, phone, SellerType, sellerName, years } = product;
+    const { categoryId, ProductName, picture, ResalePrice, about, location, originalPrice, phone, SellerType, sellerName, years } = product;
+    console.log(product);
+
+    const handleReport = (id) => {
+
+        fetch(`http://localhost:5000/report/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Report Successfully.')
+            })
+
+    }
+
+
+
 
     return (
         <div>
@@ -42,7 +62,13 @@ const Card = ({ product, setModalData, }) => {
                         {phone}</p>
                     <p >{about.slice(0, 100)}...</p>
 
-                    <div className="card-actions justify-end">
+                    <div className="card-actions mt-3 justify-between">
+                        <label
+                            onClick={() => handleReport(product._id)}
+                            htmlFor="booking-modal"
+                            className="btn btn-primary btn-sm"
+                        >Admin ReportF</label>
+
                         <label
                             onClick={() => setModalData(product)}
                             htmlFor="booking-modal"

@@ -13,6 +13,9 @@ const Categories = () => {
             return data
         }
     });
+
+
+
     if (isLoading) {
         return <Loading></Loading>
     }
