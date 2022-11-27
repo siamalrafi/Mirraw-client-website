@@ -23,11 +23,6 @@ const DashBoardLayout = () => {
 
 
 
-    console.log(userInformation?.auserType);
-
-
-
-
     return (
         <div>
             <Navbar></Navbar>
@@ -58,15 +53,12 @@ const DashBoardLayout = () => {
                             <>
                                 <li><Link to={'/dashboard/allbuyer'}>All Buyers</Link></li>
                                 <li><Link to={'/dashboard/allseller'}>All Seller</Link></li>
+                                <li><Link to={'/dashboard/reportedproducts'}>Reported Products</Link></li>
                             </>
                         }
-
                     </ul>
-
                 </div>
             </div>
-
-
         </div >
     );
 };

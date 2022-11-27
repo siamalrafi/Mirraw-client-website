@@ -20,7 +20,7 @@ const Advertised = () => {
                 <h3 className='text-3xl'>Advertised Products We Provide</h3>
             </div>
 
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 justify-self-center">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-self-center">
                 {
                     advertised?.map(adver => <AdvertisedCard
                         key={adver._id}

@@ -1,25 +1,27 @@
 import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Card = ({ product, setModalData, }) => {
+    const { user } = useContext(AuthContext);
     const { categoryId, ProductName, picture, ResalePrice, about, location, originalPrice, phone, SellerType, sellerName, years } = product;
 
 
 
     const handleReport = (id) => {
-        fetch(`http://localhost:5000/report/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify()
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount === 1) {
-                    toast.success('Report Successfully.')
-                }
-            });
+        // fetch(`http://localhost:5000/report/${id}`, {
+        //     method: 'PUT',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify()
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.modifiedCount === 1) {
+        //             toast.success('Report Successfully.')
+        //         }
+        //     });
     }
 
 
