@@ -4,8 +4,6 @@ import app from '../Firebase/Firebase.config';
 import { GoogleAuthProvider } from "firebase/auth";
 
 
-
-
 export const AuthContext = createContext();
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
@@ -18,29 +16,29 @@ const AuthProvider = ({ children }) => {
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
-    }
+    };
 
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
-    }
+    };
 
-    const updateUser = (name, userType) => {
+    const updateUser = (name) => {
         return updateProfile(auth.currentUser, {
             displayName: name
-        })
+        });
     };
 
     const googelSign = () => {
         return signInWithPopup(auth, googleProvider)
 
-    }
+    };
 
     const logOut = () => {
         setLoading(true);
         localStorage.removeItem('accessToken');
         return signOut(auth);
-    }
+    };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -61,7 +59,7 @@ const AuthProvider = ({ children }) => {
         setDisplayID,
         displayId,
         user,
-        loading,
+        loading
     }
     return (
         <AuthContext.Provider value={authInfo}>
