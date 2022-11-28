@@ -34,7 +34,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='mt-16 text-center'>
-                    <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © 2022 - All right reserved by RHD Industries Ltd</p>
                 </div>
             </footer>
         </div>

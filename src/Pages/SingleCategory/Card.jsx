@@ -1,6 +1,6 @@
 import { faCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -38,10 +38,7 @@ const Card = ({ product, setModalData, }) => {
                     toast.success('Seller Reported Successfully.')
                 }
             });
-    }
-
-
-
+    };
 
     return (
         <div>

@@ -14,7 +14,6 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
 
 
-
     const handleLogin = data => {
         setLoginError('');
         signIn(data.email, data.password)
@@ -25,7 +24,6 @@ const Login = () => {
                     email: data.email,
                 };
                 console.log(currentUser);
-                // loginToast();
                 fetch('https://my-mirraw-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
@@ -94,14 +92,7 @@ const Login = () => {
                 toast.error('Something went wrong, try again. ')
                 console.log(error);
             })
-    }
-
-
-
-
-
-
-
+    };
 
 
     return (
@@ -139,7 +130,6 @@ const Login = () => {
                 <button
                     onClick={() => handleGoogleSign()}
                     className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
-
             </div>
         </div>
     );

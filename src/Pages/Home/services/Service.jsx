@@ -23,7 +23,6 @@ const Service = ({ service, }) => {
                         >
                             <button className="btn text-2xl btn-primary">See All</button>
                         </Link>
-
                     </div>
                 </div>
             </div>

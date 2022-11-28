@@ -14,7 +14,6 @@ const Categories = () => {
     }, []);
 
 
-
     return (
         <div>
             <div className='text-center mt-16'>
@@ -30,10 +29,7 @@ const Categories = () => {
                     >
                     </Service>)
                 }
-
             </div>
-
-
         </div>
     );
 };

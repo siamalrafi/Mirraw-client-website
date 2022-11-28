@@ -1,16 +1,7 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthProvider';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DisplayError = () => {
-    const { logOut } = useContext(AuthContext);
-    const navigate = useNavigate();
-
-
-    const handleErrorSignOut = () => {
-        logOut();
-        navigate('/')
-    }
     return (
         <div>
             <section className="flex items-center h-screen sm:p-16 bg-base-300  dark:text-black">

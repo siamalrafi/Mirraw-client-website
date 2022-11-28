@@ -22,8 +22,6 @@ const SingleCategory = () => {
                 }
             </div>
 
-
-
             {
                 modalData && <BookingModal
                     modalData={modalData}
