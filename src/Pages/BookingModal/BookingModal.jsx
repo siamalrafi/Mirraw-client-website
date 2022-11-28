@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ modalData, }) => {
-    // const mookingToast = () => toast.success('Booking confirmed');
-    // const mookingToastError = () => toast.error('Error! Please try again');
     const { user } = useContext(AuthContext);
 
     const handleBooking = (event) => {

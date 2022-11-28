@@ -61,8 +61,6 @@ const Blogs = () => {
                                 <mark className='mr-2'>Vue.js</mark>
                                 is javascript based MVC framework and is very helpful in creating responsive UI.Following are key features of Vue.js.
                                 Vue.js makes Laravel, Alibaba, GitLab, Trustpilot, etc.
-
-
                             </p>
                         </details>
                     </div>
