@@ -5,7 +5,6 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user?.displayName);
 
     const manuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
@@ -24,7 +23,6 @@ const Navbar = () => {
                     <li><Link to='/login'>Login</Link></li>
                 </>
         }
-
 
         <div className="form-control mt-2">
             <label className="label cursor-pointer">
