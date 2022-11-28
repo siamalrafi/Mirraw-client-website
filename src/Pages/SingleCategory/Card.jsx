@@ -11,7 +11,7 @@ const Card = ({ product, setModalData, }) => {
 
 
     const handleReport = (id) => {
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://my-mirraw-server.vercel.app/report/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify()
@@ -27,7 +27,7 @@ const Card = ({ product, setModalData, }) => {
 
     const handleReportSeller = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/reportseller/${id}`, {
+        fetch(`https://my-mirraw-server.vercel.app/reportseller/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify()

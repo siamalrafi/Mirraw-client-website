@@ -26,7 +26,7 @@ const Login = () => {
                 };
                 console.log(currentUser);
                 // loginToast();
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://my-mirraw-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -59,7 +59,7 @@ const Login = () => {
                     email: user?.email,
                 };
                 console.log(currentUser);
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://my-mirraw-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const Login = () => {
                     email: user?.email,
                     userType: 'Buyer'
                 };
-                fetch('http://localhost:5000/users', {
+                fetch('https://my-mirraw-server.vercel.app/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(userInformation)

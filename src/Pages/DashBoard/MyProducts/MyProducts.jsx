@@ -12,7 +12,7 @@ const Seller = () => {
     const { data: myProducts = [], refetch, isLoading } = useQuery({
         queryKey: ['myProducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`)
+            const res = await fetch(`https://my-mirraw-server.vercel.app/myProducts?email=${user?.email}`)
             const data = await res.json();
             return data
         }

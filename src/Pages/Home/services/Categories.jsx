@@ -7,7 +7,7 @@ const Categories = () => {
     const [servicesData, setServicesData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/category')
+        axios.get('https://my-mirraw-server.vercel.app/category')
             .then(res => {
                 setServicesData(res.data);
             })

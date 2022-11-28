@@ -20,7 +20,7 @@ const SignUp = () => {
                     email: data?.email,
                 };
                 console.log(currentUser);
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://my-mirraw-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -39,7 +39,7 @@ const SignUp = () => {
                             email: user?.email,
                             userType: data?.userType
                         };
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://my-mirraw-server.vercel.app/users', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(userInformation)
@@ -68,7 +68,7 @@ const SignUp = () => {
                     email: user?.email,
                 };
                 console.log(currentUser);
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://my-mirraw-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -86,7 +86,7 @@ const SignUp = () => {
                     email: user?.email,
                     userType: 'Buyer'
                 };
-                fetch('http://localhost:5000/users', {
+                fetch('https://my-mirraw-server.vercel.app/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(userInformation)

@@ -33,7 +33,7 @@ const router = createBrowserRouter([
                     <SingleCategory></SingleCategory>
                 </PrivateRoute>,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/products/${params.id}`)
+                    fetch(`https://my-mirraw-server.vercel.app/products/${params.id}`)
             },
             {
                 path: '/blogs',

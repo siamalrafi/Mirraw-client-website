@@ -12,7 +12,7 @@ const AllBuyer = () => {
     const { data: allbuyers = [], isLoading, refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/seller`)
+            const res = await fetch(`https://my-mirraw-server.vercel.app/seller`)
             const data = await res.json();
             return data
         }
@@ -25,7 +25,7 @@ const AllBuyer = () => {
 
     const handleDeleteBuyer = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/buyer/${id}`, {
+        fetch(`https://my-mirraw-server.vercel.app/buyer/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

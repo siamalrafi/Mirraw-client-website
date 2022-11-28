@@ -8,7 +8,7 @@ const ReportedProducts = () => {
     const { data: reportedProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['/reportedProducts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reportedProducts')
+            const res = await fetch('https://my-mirraw-server.vercel.app/reportedProducts')
             const data = await res.json();
             return data;
         }
@@ -19,7 +19,7 @@ const ReportedProducts = () => {
     }
 
     const handleDeleteProducts = (id) => {
-        fetch(`http://localhost:5000/reportedProducts/${id}`, {
+        fetch(`https://my-mirraw-server.vercel.app/reportedProducts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

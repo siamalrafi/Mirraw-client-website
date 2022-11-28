@@ -9,7 +9,7 @@ const SellerCard = ({ myProduct, refetch }) => {
     const advertiseProduct = myProduct;
 
     const handleProductAdv = () => {
-        fetch('http://localhost:5000/advertised', {
+        fetch('https://my-mirraw-server.vercel.app/advertised', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(advertiseProduct)
@@ -26,7 +26,7 @@ const SellerCard = ({ myProduct, refetch }) => {
 
 
     const handleProductDelete = (id) => {
-        fetch(`http://localhost:5000/myProducts/${id}`, {
+        fetch(`https://my-mirraw-server.vercel.app/myProducts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
