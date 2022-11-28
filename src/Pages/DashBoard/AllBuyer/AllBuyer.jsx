@@ -8,7 +8,6 @@ import Loading from '../../../Shared/Loading/Loading';
 const AllBuyer = () => {
     const { user } = useContext(AuthContext);
 
-
     const { data: allbuyers = [], isLoading, refetch } = useQuery({
         queryKey: ['allbuyers'],
         queryFn: async () => {
@@ -17,6 +16,7 @@ const AllBuyer = () => {
             return data
         }
     });
+
 
     if (isLoading) {
         return <Loading></Loading>
