@@ -19,7 +19,6 @@ const Advertised = () => {
                 <h2 className='font-bold text-primary text-2xl uppercase'>Advertised Product</h2>
                 <h3 className='text-3xl'>Advertised Products We Provide</h3>
             </div>
-
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center">
                 {
                     advertised?.map(adver => <AdvertisedCard
@@ -28,11 +27,8 @@ const Advertised = () => {
                     ></AdvertisedCard>
                     )
                 }
-
             </div>
-
         </div>
-
     );
 };
 

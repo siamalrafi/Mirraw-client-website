@@ -31,10 +31,7 @@ const AllReviews = () => {
             location: 'Barisal',
             rating: 5
         },
-    ]
-
-
-
+    ];
 
     return (
         <section className='my-16 ' >
@@ -43,7 +40,6 @@ const AllReviews = () => {
                 <h2 className="text-3xl text-center text-primary font-bold">Some Reviews</h2>
                 <p className='text-4xl '>What Our customer Says</p>
             </div>
-
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5'>
 

@@ -8,11 +8,6 @@ const Banner = () => {
                     <img src='https://i.ibb.co/H22LkdC/download.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
                     <img src='https://i.ibb.co/X54qsGL/download.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
                     <img src='https://i.ibb.co/Wzkks5d/download-1.jpg' className="lg:w-1/2 rounded-lg lg:h-72 shadow-2xl" alt='banner-img' />
-
-                    {/* 
-                    
-                     */}
-
                 </div>
             </div>
             <div className="hero  bg-base-200">
