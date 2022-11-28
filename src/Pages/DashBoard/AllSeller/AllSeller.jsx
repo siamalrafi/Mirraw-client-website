@@ -21,10 +21,9 @@ const AllSeller = () => {
 
     if (isLoading) {
         return <Loading></Loading>
-    }
+    };
 
     const handleDeleteSeller = (id) => {
-        console.log(id);
         fetch(`https://my-mirraw-server.vercel.app/seller/${id}`, {
             method: 'DELETE'
         })
@@ -34,9 +33,8 @@ const AllSeller = () => {
                 if (data.deletedCount === 1) {
                     toast.success('successfully deleted ');
                     refetch();
-                }
-            })
-
+                };
+            });
     };
 
     return (
