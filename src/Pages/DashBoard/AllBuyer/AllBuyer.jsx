@@ -20,11 +20,9 @@ const AllBuyer = () => {
 
     if (isLoading) {
         return <Loading></Loading>
-    }
-
+    };
 
     const handleDeleteBuyer = (id) => {
-        console.log(id);
         fetch(`https://my-mirraw-server.vercel.app/buyer/${id}`, {
             method: 'DELETE'
         })
@@ -36,7 +34,6 @@ const AllBuyer = () => {
                     refetch();
                 }
             })
-
     };
 
     return (
