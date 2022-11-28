@@ -21,8 +21,6 @@ const DashBoardLayout = () => {
     }, [user?.email]);
 
 
-
-
     return (
         <div>
             <Navbar></Navbar>
