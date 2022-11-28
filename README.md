@@ -11,7 +11,7 @@
 * Also an admin routes are available here. Admin are the boss of this website. Admin can add, delete Seller, delete products, delete buyer and cancel booking requests.
 
 
-### Live link Live Link : https://mirraw-ebac6.web.app/
+### Live Website Link : https://mirraw-ebac6.web.app/
 
 
 
