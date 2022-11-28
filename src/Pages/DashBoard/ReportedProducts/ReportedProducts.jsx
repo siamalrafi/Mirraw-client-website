@@ -12,11 +12,11 @@ const ReportedProducts = () => {
             const data = await res.json();
             return data;
         }
-    })
+    });
 
     if (isLoading) {
         return <Loading></Loading>
-    }
+    };
 
     const handleDeleteProducts = (id) => {
         fetch(`https://my-mirraw-server.vercel.app/reportedProducts/${id}`, {
@@ -29,12 +29,8 @@ const ReportedProducts = () => {
                     toast.success('successfully deleted ');
                     refetch();
                 }
-            })
-    }
-
-
-
-
+            });
+    };
 
     return (
         <div>
