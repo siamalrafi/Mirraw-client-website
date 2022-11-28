@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import Loading from '../../../Shared/Loading/Loading';
 
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +18,9 @@ const MyBooking = () => {
         }
     });
 
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     const handleDelete = (id) => {
         fetch(`https://my-mirraw-server.vercel.app/bookings/${id}`, {
@@ -29,10 +33,8 @@ const MyBooking = () => {
                     toast.success('successfully deleted ');
                     refetch();
                 }
-            })
+            });
     };
-
-
 
 
     return (
